@@ -22,13 +22,10 @@ public class Triangle extends Shape {
 		double[] sides = {side1, side2, side3};
 		Arrays.sort(sides);
 		
-		if (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2))
-			return true;
-			
-		return false;
+		return Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2);
 	}
 	
-	public boolean isIsosceles() {return side1 == side2 || side1 == side3 || side2 == side3;}
+	public boolean isIsosceles() {return (side1 == side2 || side1 == side3 || side2 == side3) && !isEquilateral();}
 	public boolean isEquilateral() {return side1 == side2 && side2 == side3;}
 	public boolean isRightIsosceles() {return isRight() && isIsosceles();}
 }
